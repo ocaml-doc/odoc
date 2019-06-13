@@ -94,7 +94,7 @@ let rec nestable_block_element
   | {value = `Paragraph content; location} ->
     Location.at location (`Paragraph (inline_elements status content))
 
-  | {value = `Code_block _; _}
+  | {value = `Code_block (_, _); _}
   | {value = `Verbatim _; _}
   | {value = `Modules _; _} as element ->
     element

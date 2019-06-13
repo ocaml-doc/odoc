@@ -88,6 +88,14 @@
           ignore foo
     ]}
 
+    Code blocks can have an identifier attached to them:
+
+    {ocaml[
+        # print_int (2 + 2);;
+        4
+        - : unit = ()
+    ]}
+
     There are also verbatim blocks:
 
 {v

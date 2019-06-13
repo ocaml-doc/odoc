@@ -65,7 +65,7 @@ type t = [
   | `Begin_link_with_replacement_text of string
 
   (* Leaf block element markup. *)
-  | `Code_block of string
+  | `Code_block of string option * string
   | `Verbatim of string
   | `Modules of string
 

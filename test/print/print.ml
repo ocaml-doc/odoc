@@ -276,7 +276,8 @@ struct
     function
     | `Paragraph es ->
       List [Atom "paragraph"; List (List.map (at inline_element) es)]
-    | `Code_block c -> List [Atom "code_block"; Atom c]
+    | `Code_block (Some id, c) -> List [Atom "code_block"; Atom id; Atom c]
+    | `Code_block (None, c) -> List [Atom "code_block"; Atom c]
     | `Verbatim t -> List [Atom "verbatim"; Atom t]
     | `Modules ps ->
       List [Atom "modules"; List (List.map Reference_to_sexp.reference (ps :> Odoc_model.Paths.Reference.t list))]

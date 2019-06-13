@@ -331,6 +331,9 @@ let tests : test_suite list = [
     t "unterminated" "{[foo";
     t "unterminated-bracket" "{[foo]";
     t "trailing-cr" "{[foo\r]}";
+    (* t "basic-with-id" "{foo[bar]}"; *)
+    (* t "empty-with-id" "{lang[]}"; *)
+    (* t "with-style-id" "{b[foo]}"; *)
   ];
 
   "verbatim", [

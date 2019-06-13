@@ -44,7 +44,7 @@ type inline_element = [
 
 type nestable_block_element = [
   | `Paragraph of (inline_element with_location) list
-  | `Code_block of string
+  | `Code_block of string option * string
   | `Verbatim of string
   | `Modules of Reference.Module.t list
   | `List of

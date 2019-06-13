@@ -201,11 +201,11 @@ let emit_verbatim input start_offset buffer =
   let t = trim_trailing_blank_lines t in
   emit input (`Verbatim t) ~start_offset
 
-let code_block c =
+let code_block ?id c =
   let c = trim_leading_blank_lines c in
   let c = trim_trailing_blank_lines c in
   let c = trim_leading_whitespace c in
-  `Code_block c
+  `Code_block (id, c)
 
 
 
@@ -298,6 +298,9 @@ rule token input = parse
 
   | (reference_start as start) ([^ '}']* as target) '}'
     { emit input (reference_token start target) }
+
+  | '{' (['a'-'z' 'A'-'Z']+ as id) '[' (code_block_text as c) "]}"
+    { emit input (code_block ~id c) }
 
   | "{[" (code_block_text as c) "]}"
     { emit input (code_block c) }
@@ -461,7 +464,7 @@ rule token input = parse
         ~start_offset:(Lexing.lexeme_end lexbuf)
         (Parse_error.not_allowed
           ~what:(Token.describe `End)
-          ~in_what:(Token.describe (`Code_block "")));
+          ~in_what:(Token.describe (`Code_block (None, ""))));
       emit input (code_block c) }
 
 

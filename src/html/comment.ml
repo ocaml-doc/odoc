@@ -253,7 +253,8 @@ let rec nestable_block_element
   fun ?xref_base_uri ~to_syntax ~from_syntax -> function
   | `Paragraph [{value = `Raw_markup (`Html, s); _}] -> Html.Unsafe.data s
   | `Paragraph content -> Html.p (inline_element_list ?xref_base_uri content)
-  | `Code_block s ->
+  | `Code_block (_, s) ->
+    (* TODO(rizo): use code block id as a CSS class. *)
     let open Tree in
     (*
     TODO: This will probably be replaced by a proper plugin / PPX system.
