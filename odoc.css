@@ -1,7 +1,7 @@
 @charset "UTF-8";
-/* Copyright (c) 2016 Daniel C. Bünzli. All rights reserved.
+/* Copyright (c) 2016 The odoc contributors. All rights reserved.
    Distributed under the ISC license, see terms at the end of the file.
-   %%NAME%% %%VERSION%% */
+   odoc 1.5.0 */
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,500');
@@ -248,7 +248,7 @@ h4 {
 /* Preformatted and code */
 
 tt, code, pre {
-  font-family: "Fira Code", "Fira Mono", courier;
+  font-family: "Fira Mono", courier;
   font-weight: 400;
 }
 
@@ -279,7 +279,7 @@ pre code {
 /* Code lexemes */
 
 .keyword {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* Module member specification */
@@ -298,17 +298,6 @@ pre code {
 
 dl, div.spec, .doc, aside {
   margin-bottom: 20px;
-}
-
-/* Indent the second line in multiline spec definitions. */
-.spec:not(.type) > code {
-  display: block;
-  padding-left: 4ex;
-  text-indent: -4ex;
-}
-
-.spec.exception > code {
-  display: inline-block;
 }
 
 dl > dd {
@@ -335,6 +324,13 @@ section+section, section > header + dl {
   margin-left: 2ch;
 }
 .spec.type .variant p {
+  margin: 0;
+  font-style: italic;
+}
+.spec.type .record {
+  margin-left: 2ch;
+}
+.spec.type .record p {
   margin: 0;
   font-style: italic;
 }
@@ -452,7 +448,7 @@ span.at-tag {
 
 .heading {
   margin-top: 10px;
-  border-top: solid;
+  border-bottom: solid;
   border-width: 1px;
   border-color: #DDD;
   text-align: right;
@@ -583,7 +579,7 @@ h1+.modules, h1+.sel {
 
 .toc:before {
   display: block;
-  content: "Topics";
+  content: "Contents";
   text-transform: uppercase;
   font-size: 1em;
   margin: 1.414em 0 0.5em;
@@ -680,10 +676,6 @@ h1+.modules, h1+.sel {
 
 /* Syntax highlighting (based on github-gist) */
 
-.keyword {
-  font-weight: 500;
-}
-
 .hljs {
   display: block;
   background: white;
@@ -756,7 +748,7 @@ h1+.modules, h1+.sel {
 }
 
 /*---------------------------------------------------------------------------
-   Copyright (c) 2016 Daniel C. Bünzli
+   Copyright (c) 2016 The odoc contributors
 
    Permission to use, copy, modify, and/or distribute this software for any
    purpose with or without fee is hereby granted, provided that the above
