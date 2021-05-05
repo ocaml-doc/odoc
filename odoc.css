@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Copyright (c) 2016 The odoc contributors. All rights reserved.
    Distributed under the ISC license, see terms at the end of the file.
-   odoc 2.0.0-beta2 */
+   odoc 2.0.0-beta3 */
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,500');
@@ -10,6 +10,9 @@
 
 :root,
 .light:root {
+   --main-background: #FFFFFF;
+
+  --color: #333333;
   --link-color: #2C94BD;
   --anchor-hover: #555;
   --anchor-color: #d5d5d5;
@@ -20,6 +23,20 @@
   --target-background: rgba(187, 239, 253, 0.3);
   --target-shadow: rgba(187, 239, 253, 0.8);
   --pre-border-color: #eee;
+  --code-background: #f6f8fa;
+
+  --li-code-background: #f6f8fa;
+  --li-code-color: #0d2b3e;
+  --toc-color: #1F2D3D;
+  --toc-before-color: #777;
+  --toc-background: #f6f8fa;
+  --toc-list-border: #ccc;
+
+  --spec-summary-border-color: #5c9cf5;
+  --spec-summary-background: var(--code-background);
+  --spec-summary-hover-background: #ebeff2;
+  --spec-details-after-background: rgba(0, 4, 15, 0.05);
+  --spec-details-after-shadow: rgba(204, 204, 204, 0.53);
 }
 
 .dark:root {
@@ -42,6 +59,11 @@
   --border: #333;
   --navbar-border: #333;
   --code-color: #ccc;
+
+  --li-code-background: #373737;
+  --li-code-color: #999;
+  --toc-color: #777;
+  --toc-background: #252525;
 
   --hljs-link: #999;
   --hljs-keyword: #cda869;
@@ -77,15 +99,15 @@
     --border: #333;
     --navbar-border: #333;
     --code-color: #ccc;
+    --by-name-nav-link-color: var(--color);
 
     --li-code-background: #373737;
     --li-code-color: #999;
     --toc-color: #777;
+    --toc-before-color: #777;
     --toc-background: #252525;
     --toc-list-border: #ccc;
-    --spec-summary-background: var(--code-background);
     --spec-summary-hover-background: #ebeff2;
-    --spec-summary-border-color: #5c9cf5;
     --spec-details-after-background: rgba(0, 4, 15, 0.05);
     --spec-details-after-shadow: rgba(204, 204, 204, 0.53);
 
@@ -223,19 +245,15 @@ li>*:first-child {
 
 a {
   text-decoration: none;
-  color: #2C5CBD;
   color: var(--link-color);
 }
 
 a:hover {
-  box-shadow: 0 1px 0 0 #2C5CBD;
   box-shadow: 0 1px 0 0 var(--link-color);
 }
 
 /* Linked highlight */
 *:target {
-  background-color: rgba(187,239,253,0.3) !important;
-  box-shadow: 0 0px 0 1px rgba(187,239,253,0.8) !important;
   background-color: var(--target-background) !important;
   box-shadow: 0 0px 0 1px var(--target-shadow) !important;
   border-radius: 1px;
@@ -252,7 +270,6 @@ a.anchor:before {
 a.anchor:hover {
   box-shadow: none;
   text-decoration: none;
-  color: #555;
   color: var(--anchor-hover);
 }
 
@@ -267,7 +284,6 @@ a.anchor {
   padding-right: 0.4em;
   padding-left: 0.4em;
   /* To remain selectable */
-  color: #d5d5d5;
   color: var(--anchor-color);
 }
 
@@ -280,7 +296,6 @@ a.anchor {
   color: #2C94BD;
 }
 .xref-unresolved:hover {
-  box-shadow: 0 1px 0 0 #CC6666;
   box-shadow: 0 1px 0 0 var(--xref-shadow);
 }
 
@@ -306,7 +321,6 @@ h1 {
 h1 {
   font-weight: 500;
   font-size: 1.953em;
-  box-shadow: 0 1px 0 0 #ddd;
   box-shadow: 0 1px 0 0 var(--header-shadow);
 }
 
@@ -346,6 +360,22 @@ h4 {
   font-size: 1.12em;
 }
 
+/* Comment delimiters, hidden but accessible to screen readers and 
+   selected for copy/pasting */
+
+/* Taken from bootstrap */
+/* See also https://stackoverflow.com/a/27769435/4220738 */
+.comment-delim {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* Preformatted and code */
 
@@ -356,7 +386,6 @@ tt, code, pre {
 
 pre {
   padding: 0.1em;
-  border: 1px solid #eee;
   border: 1px solid var(--pre-border-color);
   border-radius: 5px;
   overflow-x: auto;
@@ -364,8 +393,6 @@ pre {
 
 p code,
 li code {
-  background-color: #f6f8fa;
-  color: #0d2b3e;
   background-color: var(--li-code-background);
   color: var(--li-code-color);
   border-radius: 3px;
@@ -373,7 +400,6 @@ li code {
 }
 
 p a > code {
-  color: #2C5CBD;
   color: var(--link-color);
 }
 
@@ -389,45 +415,20 @@ pre code {
   font-weight: 500;
 }
 
+.arrow { white-space: nowrap }
+
 /* Module member specification */
 
-.spec:not(.include), .spec.include details summary {
-  background-color: #f6f8fa;
+.spec {
   background-color: var(--spec-summary-background);
   border-radius: 3px;
-  border-left: 4px solid #5c9cf5;
   border-left: 4px solid var(--spec-summary-border-color);
   border-right: 5px solid transparent;
   padding: 0.35em 0.5em;
 }
 
-.spec.include details summary:hover {
-  background-color: #ebeff2;
-  background-color: var(--spec-summary-hover-background);
-}
-
-dl, div.spec, .doc, aside {
+div.spec, .def-doc {
   margin-bottom: 20px;
-}
-
-dl > dd {
-  padding: 0.5em;
-}
-
-dd > :first-child {
-  margin-top: 0;
-}
-
-dl:last-child, dd> :last-child, aside:last-child, article:last-child {
-  margin-bottom: 0;
-}
-
-dt+dt {
-  margin-top: 15px;
-}
-
-section+section, section > header + dl {
-  margin-top: 25px;
 }
 
 .spec.type .variant {
@@ -451,27 +452,22 @@ div.def {
   padding-left: 2ex;
 }
 
-div.def+div.doc {
+div.def+div.def-doc {
   margin-left: 1ex;
   margin-top: 2.5px
 }
 
-div.doc>*:first-child {
+div.def-doc>*:first-child {
   margin-top: 0;
 }
 
-/* The elements other than heading should be wrapped in <aside> elements. */
-/* heading, body>p, body>ul, body>ol, h3, h4, body>pre { */
-/*   margin-bottom: 30px; */
-/* } */
-
 /* Collapsible inlined include and module */
 
-.spec.include details {
+.odoc-include details {
   position: relative;
 }
 
-.spec.include details:after {
+.odoc-include details:after {
   z-index: -100;
   display: block;
   content: " ";
@@ -481,21 +477,23 @@ div.doc>*:first-child {
   top: 1px;
   bottom: 1px;
   width: 15px;
-  background: rgba(0, 4, 15, 0.05);
-  box-shadow: 0 0px 0 1px rgba(204, 204, 204, 0.53);
-  background: var(--spec-details-after-background);
-  box-shadow: 0 0px 0 1px var(--spec-details-after-shadow);
+  background: var(--spec-details-after-background, rgba(0, 4, 15, 0.05));
+  box-shadow: 0 0px 0 1px var(--spec-details-after-shadow, rgba(204, 204, 204, 0.53));
 }
 
-.spec.include details summary {
+.odoc-include summary {
   position: relative;
   margin-bottom: 20px;
   cursor: pointer;
   outline: none;
 }
 
+.odoc-include summary:hover {
+  background-color: var(--spec-summary-hover-background);
+}
+
 /* FIXME: Does not work in Firefox. */
-details summary::-webkit-details-marker {
+.odoc-include summary::-webkit-details-marker {
   color: #888;
   transform: scaleX(-1);
   position: absolute;
@@ -516,113 +514,47 @@ td.def {
   padding-left: 2ex;
 }
 
-td.doc *:first-child {
+td.def-doc *:first-child {
   margin-top: 0em;
 }
 
-/* @ tags */
+/* Lists of @tags */
 
-ul.at-tag {
-  list-style-type: none;
-  margin-left: 0;
-  padding: 0;
-}
+.at-tags { list-style-type: none; margin-left: -3ex; }
+.at-tags li { padding-left: 3ex; text-indent: -3ex; }
+.at-tags .at-tag { text-transform: capitalize }
 
-ul.at-tag li {
-  margin-left: 0;
-  padding: 0;
-}
+/* Lists of modules */
 
-ul.at-tag li p:first-child {
-  margin-top: 0;
-}
-
-/* FIXME remove */
-
-span.at-tag {
-  font-weight: bold;
-}
-
-.at-tag.deprecated {
-  font-weight: normal;
-  color: crimson;
-}
-
-.at-tag.raise {
-  font-weight: bold;
-}
-
-/* FIXME random other things to review. */
-
-.heading {
-  margin-top: 10px;
-  border-bottom: solid;
-  border-width: 1px;
-  border-color: #DDD;
-  border-color: var(--header-shadow);
-  text-align: right;
-  font-weight: normal;
-  font-style: italic;
-}
-
-.heading + .sig {
-  margin-top: -20px;
-}
-
-.heading + .parameters {
-  margin-top: -20px;
-}
+.modules { list-style-type: none; margin-left: -3ex; }
+.modules li { padding-left: 3ex; text-indent: -3ex; margin-top: 5px }
+.modules .synopsis { padding-left: 1ch; }
 
 /* Odig package index */
 
-.by-name ol, .by-tag ol, .errors ol {
-  list-style-type: none;
-  margin-left: 0;
-}
-
-.by-name ol ol, .by-tag ol ol {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.by-name li, .by-tag li, .errors li {
-  margin-left: 0;
-}
-
-.by-name .version {
-  font-size: 10px;
-  color: #AAA;
-  color: var(--by-name-version-color);
-}
-
-.by-name nav {
-  margin-bottom: 10px;
-}
+.packages { list-style-type: none; margin-left: -3ex; }
+.packages li { padding-left: 3ex; text-indent: -3ex }
+.packages li a.anchor { padding-right: 0.5ch; padding-left: 3ch; }
+.packages .version { font-size: 10px; color: var(--by-name-version-color); }
+.packages .synopsis { padding-left: 1ch }
 
 .by-name nav a {
   text-transform: uppercase;
   font-size: 18px;
   margin-right: 1ex;
-  color: #222;
-  color: var(--by-name-nav-link-color);
+  color: var(--by-name-nav-link-color,);
   display: inline-block;
 }
 
 .by-tag nav a {
   margin-right: 1ex;
-  color: #222;
   color: var(--by-name-nav-link-color);
   display: inline-block;
 }
 
-.by-tag>ol>li {
-  margin-top: 10px;
-}
-
-.by-tag>ol>li>span, .by-tag>ol>li>ol, .by-tag>ol>li>ol>li {
-  display: inline-block;
-  margin-right: 1ex;
-}
+.by-tag ol { list-style-type: none; }
+.by-tag ol.tags li { margin-left: 1ch; display: inline-block }
+.by-tag td:first-child { text-transform: uppercase; }
 
 /* Odig package page */
 
@@ -634,32 +566,6 @@ span.at-tag {
 
 .package .version {
   font-size: 14px;
-}
-
-h1+.modules, h1+.sel {
-  margin-top: 10px
-}
-
-.sel {
-  font-weight: normal;
-  font-style: italic;
-  font-size: 14px;
-  margin-top: 20px;
-}
-
-.sel + .modules {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 1ex;
-}
-
-.modules {
-  margin: 0;
-}
-
-.modules .module {
-  min-width: 8ex;
-  padding-right: 2ex;
 }
 
 .package.info {
@@ -696,7 +602,6 @@ h1+.modules, h1+.sel {
   font-size: 1em;
   margin: 1.414em 0 0.5em;
   font-weight: 500;
-  color: #777;
   color: var(--toc-before-color);
   line-height: 1.2;
 }
@@ -709,10 +614,8 @@ h1+.modules, h1+.sel {
   max-width: 30ex;
   min-width: 26ex;
   width: 20%;
-  background: #f6f8fa;
   background: var(--toc-background);
   overflow: auto;
-  color: #1F2D3D;
   color: var(--toc-color);
   padding-left: 2ex;
   padding-right: 2ex;
@@ -721,7 +624,6 @@ h1+.modules, h1+.sel {
 .odoc-toc ul li a {
   font-family: "Fira Sans", sans-serif;
   font-size: 0.95em;
-  color: #333;
   color: var(--color);
   font-weight: 400;
   line-height: 1.6em;
@@ -755,7 +657,6 @@ h1+.modules, h1+.sel {
 }
 
 .odoc-toc ul li li {
-  border-left: 1px solid #ccc;
   border-left: 1px solid var(--toc-list-border);
   margin-left: 5px;
   padding-left: 12px;
@@ -795,10 +696,8 @@ h1+.modules, h1+.sel {
 
 .hljs {
   display: block;
-  background: white;
   background: var(--code-background);
   padding: 0.5em;
-  color: #333333;
   color: var(--color);
   overflow-x: auto;
 }
