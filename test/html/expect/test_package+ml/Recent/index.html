@@ -24,218 +24,137 @@
   </header>
   <div class="odoc-content">
    <div class="odoc-spec">
-    <div class="spec module-type" id="module-type-S">
+    <div class="spec module-type anchored" id="module-type-S">
      <a href="#module-type-S" class="anchor"></a><code><span><span class="keyword">module</span> <span class="keyword">type</span> </span><span><a href="module-type-S/index.html">S</a></span><span> = <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec module-type" id="module-type-S1">
+    <div class="spec module-type anchored" id="module-type-S1">
      <a href="#module-type-S1" class="anchor"></a><code><span><span class="keyword">module</span> <span class="keyword">type</span> </span><span><a href="module-type-S1/index.html">S1</a></span><span> = <span class="keyword">functor</span><span> (<a href="module-type-S1/argument-1-_/index.html">_</a> : <a href="module-type-S/index.html">S</a>) <span class="arrow">-&gt;</span></span> <a href="module-type-S/index.html">S</a></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-variant">
+    <div class="spec type anchored" id="type-variant">
      <a href="#type-variant" class="anchor"></a><code><span><span class="keyword">type</span> variant</span><span> = </span></code>
-     <table>
-      <tbody>
-       <tr id="type-variant.A" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-variant.A" class="anchor"></a><code><span>| </span><span><span class="constructor">A</span></span></code>
-        </td>
-       </tr>
-       <tr id="type-variant.B" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-variant.B" class="anchor"></a><code><span>| </span><span><span class="constructor">B</span> <span class="keyword">of</span> int</span></code>
-        </td>
-       </tr>
-       <tr id="type-variant.C" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-variant.C" class="anchor"></a><code><span>| </span><span><span class="constructor">C</span></span></code>
-        </td>
-        <td class="def-doc">
-         <span class="comment-delim">(*</span>
-         <p>
-          foo
-         </p>
-         <span class="comment-delim">*)</span>
-        </td>
-       </tr>
-       <tr id="type-variant.D" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-variant.D" class="anchor"></a><code><span>| </span><span><span class="constructor">D</span></span></code>
-        </td>
-        <td class="def-doc">
-         <span class="comment-delim">(*</span>
-         <p>
-          <em>bar</em>
-         </p>
-         <span class="comment-delim">*)</span>
-        </td>
-       </tr>
-       <tr id="type-variant.E" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-variant.E" class="anchor"></a><code><span>| </span><span><span class="constructor">E</span> <span class="keyword">of</span> </span><span>{</span></code>
-         <table>
-          <tbody>
-           <tr id="type-variant.a" class="anchored">
-            <td class="def record field">
-             <a href="#type-variant.a" class="anchor"></a><code><span>a : int;</span></code>
-            </td>
-           </tr>
-          </tbody>
-         </table>
-         <code><span>}</span></code>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="type-variant.A" class="def variant constructor anchored">
+       <a href="#type-variant.A" class="anchor"></a><code><span>| </span><span><span class="constructor">A</span></span></code>
+      </li>
+      <li id="type-variant.B" class="def variant constructor anchored">
+       <a href="#type-variant.B" class="anchor"></a><code><span>| </span><span><span class="constructor">B</span> <span class="keyword">of</span> int</span></code>
+      </li>
+      <li id="type-variant.C" class="def variant constructor anchored">
+       <a href="#type-variant.C" class="anchor"></a><code><span>| </span><span><span class="constructor">C</span></span></code><span class="def-doc"><span class="comment-delim">(*</span>foo<span class="comment-delim">*)</span></span>
+      </li>
+      <li id="type-variant.D" class="def variant constructor anchored">
+       <a href="#type-variant.D" class="anchor"></a><code><span>| </span><span><span class="constructor">D</span></span></code><span class="def-doc"><span class="comment-delim">(*</span><em>bar</em><span class="comment-delim">*)</span></span>
+      </li>
+      <li id="type-variant.E" class="def variant constructor anchored">
+       <a href="#type-variant.E" class="anchor"></a><code><span>| </span><span><span class="constructor">E</span> <span class="keyword">of</span> </span><span>{</span></code>
+       <ol>
+        <li id="type-variant.a" class="def record field anchored">
+         <a href="#type-variant.a" class="anchor"></a><code><span>a : int;</span></code>
+        </li>
+       </ol>
+       <code><span>}</span></code>
+      </li>
+     </ol>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-gadt">
+    <div class="spec type anchored" id="type-gadt">
      <a href="#type-gadt" class="anchor"></a><code><span><span class="keyword">type</span> <span>_ gadt</span></span><span> = </span></code>
-     <table>
-      <tbody>
-       <tr id="type-gadt.A" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-gadt.A" class="anchor"></a><code><span>| </span><span><span class="constructor">A</span> : <span>int <a href="#type-gadt">gadt</a></span></span></code>
-        </td>
-       </tr>
-       <tr id="type-gadt.B" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-gadt.B" class="anchor"></a><code><span>| </span><span><span class="constructor">B</span> : int <span class="arrow">-&gt;</span> <span>string <a href="#type-gadt">gadt</a></span></span></code>
-        </td>
-        <td class="def-doc">
-         <span class="comment-delim">(*</span>
-         <p>
-          foo
-         </p>
-         <span class="comment-delim">*)</span>
-        </td>
-       </tr>
-       <tr id="type-gadt.C" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-gadt.C" class="anchor"></a><code><span>| </span><span><span class="constructor">C</span> : </span><span>{</span></code>
-         <table>
-          <tbody>
-           <tr id="type-gadt.a" class="anchored">
-            <td class="def record field">
-             <a href="#type-gadt.a" class="anchor"></a><code><span>a : int;</span></code>
-            </td>
-           </tr>
-          </tbody>
-         </table>
-         <code><span>}</span><span> <span class="arrow">-&gt;</span> <span>unit <a href="#type-gadt">gadt</a></span></span></code>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="type-gadt.A" class="def variant constructor anchored">
+       <a href="#type-gadt.A" class="anchor"></a><code><span>| </span><span><span class="constructor">A</span> : <span>int <a href="#type-gadt">gadt</a></span></span></code>
+      </li>
+      <li id="type-gadt.B" class="def variant constructor anchored">
+       <a href="#type-gadt.B" class="anchor"></a><code><span>| </span><span><span class="constructor">B</span> : int <span class="arrow">-&gt;</span> <span>string <a href="#type-gadt">gadt</a></span></span></code><span class="def-doc"><span class="comment-delim">(*</span>foo<span class="comment-delim">*)</span></span>
+      </li>
+      <li id="type-gadt.C" class="def variant constructor anchored">
+       <a href="#type-gadt.C" class="anchor"></a><code><span>| </span><span><span class="constructor">C</span> : </span><span>{</span></code>
+       <ol>
+        <li id="type-gadt.a" class="def record field anchored">
+         <a href="#type-gadt.a" class="anchor"></a><code><span>a : int;</span></code>
+        </li>
+       </ol>
+       <code><span>}</span><span> <span class="arrow">-&gt;</span> <span>unit <a href="#type-gadt">gadt</a></span></span></code>
+      </li>
+     </ol>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-polymorphic_variant">
+    <div class="spec type anchored" id="type-polymorphic_variant">
      <a href="#type-polymorphic_variant" class="anchor"></a><code><span><span class="keyword">type</span> polymorphic_variant</span><span> = </span><span>[ </span></code>
-     <table>
-      <tbody>
-       <tr id="type-polymorphic_variant.A" class="anchored">
-        <td class="def constructor">
-         <a href="#type-polymorphic_variant.A" class="anchor"></a><code><span>| </span></code><code><span>`A</span></code>
-        </td>
-       </tr>
-       <tr id="type-polymorphic_variant.B" class="anchored">
-        <td class="def constructor">
-         <a href="#type-polymorphic_variant.B" class="anchor"></a><code><span>| </span></code><code><span>`B <span class="keyword">of</span> int</span></code>
-        </td>
-       </tr>
-       <tr id="type-polymorphic_variant.C" class="anchored">
-        <td class="def constructor">
-         <a href="#type-polymorphic_variant.C" class="anchor"></a><code><span>| </span></code><code><span>`C</span></code>
-        </td>
-        <td class="def-doc">
-         <span class="comment-delim">(*</span>
-         <p>
-          foo
-         </p>
-         <span class="comment-delim">*)</span>
-        </td>
-       </tr>
-       <tr id="type-polymorphic_variant.D" class="anchored">
-        <td class="def constructor">
-         <a href="#type-polymorphic_variant.D" class="anchor"></a><code><span>| </span></code><code><span>`D</span></code>
-        </td>
-        <td class="def-doc">
-         <span class="comment-delim">(*</span>
-         <p>
-          bar
-         </p>
-         <span class="comment-delim">*)</span>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="type-polymorphic_variant.A" class="def constructor anchored">
+       <a href="#type-polymorphic_variant.A" class="anchor"></a><code><span>| </span></code><code><span>`A</span></code>
+      </li>
+      <li id="type-polymorphic_variant.B" class="def constructor anchored">
+       <a href="#type-polymorphic_variant.B" class="anchor"></a><code><span>| </span></code><code><span>`B <span class="keyword">of</span> int</span></code>
+      </li>
+      <li id="type-polymorphic_variant.C" class="def constructor anchored">
+       <a href="#type-polymorphic_variant.C" class="anchor"></a><code><span>| </span></code><code><span>`C</span></code><span class="def-doc"><span class="comment-delim">(*</span>foo<span class="comment-delim">*)</span></span>
+      </li>
+      <li id="type-polymorphic_variant.D" class="def constructor anchored">
+       <a href="#type-polymorphic_variant.D" class="anchor"></a><code><span>| </span></code><code><span>`D</span></code><span class="def-doc"><span class="comment-delim">(*</span>bar<span class="comment-delim">*)</span></span>
+      </li>
+     </ol>
      <code><span> ]</span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-empty_variant">
+    <div class="spec type anchored" id="type-empty_variant">
      <a href="#type-empty_variant" class="anchor"></a><code><span><span class="keyword">type</span> empty_variant</span><span> = </span><span>|</span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-nonrec_">
+    <div class="spec type anchored" id="type-nonrec_">
      <a href="#type-nonrec_" class="anchor"></a><code><span><span class="keyword">type</span> <span class="keyword">nonrec</span> nonrec_</span><span> = int</span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-empty_conj">
+    <div class="spec type anchored" id="type-empty_conj">
      <a href="#type-empty_conj" class="anchor"></a><code><span><span class="keyword">type</span> empty_conj</span><span> = </span></code>
-     <table>
-      <tbody>
-       <tr id="type-empty_conj.X" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-empty_conj.X" class="anchor"></a><code><span>| </span><span><span class="constructor">X</span> : <span>[&lt; <span>`X of &amp; <span class="type-var">'a</span> &amp; int * float</span> ]</span> <span class="arrow">-&gt;</span> <a href="#type-empty_conj">empty_conj</a></span></code>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="type-empty_conj.X" class="def variant constructor anchored">
+       <a href="#type-empty_conj.X" class="anchor"></a><code><span>| </span><span><span class="constructor">X</span> : <span>[&lt; <span>`X of &amp; <span class="type-var">'a</span> &amp; int * float</span> ]</span> <span class="arrow">-&gt;</span> <a href="#type-empty_conj">empty_conj</a></span></code>
+      </li>
+     </ol>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-conj">
+    <div class="spec type anchored" id="type-conj">
      <a href="#type-conj" class="anchor"></a><code><span><span class="keyword">type</span> conj</span><span> = </span></code>
-     <table>
-      <tbody>
-       <tr id="type-conj.X" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-conj.X" class="anchor"></a><code><span>| </span><span><span class="constructor">X</span> : <span>[&lt; <span>`X of int &amp; <span>[&lt; <span>`B of int &amp; float</span> ]</span></span> ]</span> <span class="arrow">-&gt;</span> <a href="#type-conj">conj</a></span></code>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="type-conj.X" class="def variant constructor anchored">
+       <a href="#type-conj.X" class="anchor"></a><code><span>| </span><span><span class="constructor">X</span> : <span>[&lt; <span>`X of int &amp; <span>[&lt; <span>`B of int &amp; float</span> ]</span></span> ]</span> <span class="arrow">-&gt;</span> <a href="#type-conj">conj</a></span></code>
+      </li>
+     </ol>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec value" id="val-empty_conj">
+    <div class="spec value anchored" id="val-empty_conj">
      <a href="#val-empty_conj" class="anchor"></a><code><span><span class="keyword">val</span> empty_conj : <span>[&lt; <span>`X of &amp; <span class="type-var">'a</span> &amp; int * float</span> ]</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec value" id="val-conj">
+    <div class="spec value anchored" id="val-conj">
      <a href="#val-conj" class="anchor"></a><code><span><span class="keyword">val</span> conj : <span>[&lt; <span>`X of int &amp; <span>[&lt; <span>`B of int &amp; float</span> ]</span></span> ]</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec module" id="module-Z">
+    <div class="spec module anchored" id="module-Z">
      <a href="#module-Z" class="anchor"></a><code><span><span class="keyword">module</span> </span><span><a href="Z/index.html">Z</a></span><span> : <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec module" id="module-X">
+    <div class="spec module anchored" id="module-X">
      <a href="#module-X" class="anchor"></a><code><span><span class="keyword">module</span> </span><span><a href="X/index.html">X</a></span><span> : <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec module-type" id="module-type-PolyS">
+    <div class="spec module-type anchored" id="module-type-PolyS">
      <a href="#module-type-PolyS" class="anchor"></a><code><span><span class="keyword">module</span> <span class="keyword">type</span> </span><span><a href="module-type-PolyS/index.html">PolyS</a></span><span> = <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>

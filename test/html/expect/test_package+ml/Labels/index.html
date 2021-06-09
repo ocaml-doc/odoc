@@ -40,12 +40,12 @@
     <a href="#L2" class="anchor"></a>Attached to nothing
    </h2>
    <div class="odoc-spec">
-    <div class="spec module" id="module-A">
+    <div class="spec module anchored" id="module-A">
      <a href="#module-A" class="anchor"></a><code><span><span class="keyword">module</span> </span><span><a href="A/index.html">A</a></span><span> : <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-t">
+    <div class="spec type anchored" id="type-t">
      <a href="#type-t" class="anchor"></a><code><span><span class="keyword">type</span> t</span></code>
     </div>
     <div class="spec-doc">
@@ -55,7 +55,7 @@
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec value" id="val-f">
+    <div class="spec value anchored" id="val-f">
      <a href="#val-f" class="anchor"></a><code><span><span class="keyword">val</span> f : <a href="#type-t">t</a></span></code>
     </div>
     <div class="spec-doc">
@@ -65,7 +65,7 @@
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec value external" id="val-e">
+    <div class="spec value external anchored" id="val-e">
      <a href="#val-e" class="anchor"></a><code><span><span class="keyword">val</span> e : <span>unit <span class="arrow">-&gt;</span></span> <a href="#type-t">t</a></span></code>
     </div>
     <div class="spec-doc">
@@ -75,22 +75,22 @@
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec module-type" id="module-type-S">
+    <div class="spec module-type anchored" id="module-type-S">
      <a href="#module-type-S" class="anchor"></a><code><span><span class="keyword">module</span> <span class="keyword">type</span> </span><span><a href="module-type-S/index.html">S</a></span><span> = <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec class" id="class-c">
+    <div class="spec class anchored" id="class-c">
      <a href="#class-c" class="anchor"></a><code><span><span class="keyword">class</span>  </span><span><a href="class-c/index.html">c</a></span><span> : <span class="keyword">object</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec class-type" id="class-type-cs">
+    <div class="spec class-type anchored" id="class-type-cs">
      <a href="#class-type-cs" class="anchor"></a><code><span><span class="keyword">class</span> <span class="keyword">type</span>  </span><span><a href="class-type-cs/index.html">cs</a></span><span> = <span class="keyword">object</span> ... <span class="keyword">end</span></span></code>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec exception" id="exception-E">
+    <div class="spec exception anchored" id="exception-E">
      <a href="#exception-E" class="anchor"></a><code><span><span class="keyword">exception</span> </span><span><span class="exception">E</span></span></code>
     </div>
     <div class="spec-doc">
@@ -100,22 +100,18 @@
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-x">
+    <div class="spec type anchored" id="type-x">
      <a href="#type-x" class="anchor"></a><code><span><span class="keyword">type</span> x</span><span> = </span><span>..</span></code>
     </div>
    </div>
    <div class="odoc-spec">
     <div class="spec type extension">
      <code><span><span class="keyword">type</span> <a href="#type-x">x</a> += </span></code>
-     <table>
-      <tbody>
-       <tr id="extension-X" class="anchored">
-        <td class="def extension">
-         <a href="#extension-X" class="anchor"></a><code><span>| </span><span><span class="extension">X</span></span></code>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="extension-X" class="def extension anchored">
+       <a href="#extension-X" class="anchor"></a><code><span>| </span><span><span class="extension">X</span></span></code>
+      </li>
+     </ol>
     </div>
     <div class="spec-doc">
      <p>
@@ -124,7 +120,7 @@
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec module-substitution" id="module-S">
+    <div class="spec module-substitution anchored" id="module-S">
      <a href="#module-S" class="anchor"></a><code><span><span class="keyword">module</span> S := <a href="A/index.html">A</a></span></code>
     </div>
     <div class="spec-doc">
@@ -134,7 +130,7 @@
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type subst" id="type-s">
+    <div class="spec type subst anchored" id="type-s">
      <a href="#type-s" class="anchor"></a><code><span><span class="keyword">type</span> s</span><span> := <a href="#type-t">t</a></span></code>
     </div>
     <div class="spec-doc">
@@ -144,45 +140,23 @@
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-u">
+    <div class="spec type anchored" id="type-u">
      <a href="#type-u" class="anchor"></a><code><span><span class="keyword">type</span> u</span><span> = </span></code>
-     <table>
-      <tbody>
-       <tr id="type-u.A'" class="anchored">
-        <td class="def variant constructor">
-         <a href="#type-u.A'" class="anchor"></a><code><span>| </span><span><span class="constructor">A'</span></span></code>
-        </td>
-        <td class="def-doc">
-         <span class="comment-delim">(*</span>
-         <p>
-          Attached to constructor
-         </p>
-         <span class="comment-delim">*)</span>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="type-u.A'" class="def variant constructor anchored">
+       <a href="#type-u.A'" class="anchor"></a><code><span>| </span><span><span class="constructor">A'</span></span></code><span class="def-doc"><span class="comment-delim">(*</span>Attached to constructor<span class="comment-delim">*)</span></span>
+      </li>
+     </ol>
     </div>
    </div>
    <div class="odoc-spec">
-    <div class="spec type" id="type-v">
+    <div class="spec type anchored" id="type-v">
      <a href="#type-v" class="anchor"></a><code><span><span class="keyword">type</span> v</span><span> = </span><span>{</span></code>
-     <table>
-      <tbody>
-       <tr id="type-v.f" class="anchored">
-        <td class="def record field">
-         <a href="#type-v.f" class="anchor"></a><code><span>f : <a href="#type-t">t</a>;</span></code>
-        </td>
-        <td class="def-doc">
-         <span class="comment-delim">(*</span>
-         <p>
-          Attached to field
-         </p>
-         <span class="comment-delim">*)</span>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+     <ol>
+      <li id="type-v.f" class="def record field anchored">
+       <a href="#type-v.f" class="anchor"></a><code><span>f : <a href="#type-t">t</a>;</span></code><span class="def-doc"><span class="comment-delim">(*</span>Attached to field<span class="comment-delim">*)</span></span>
+      </li>
+     </ol>
      <code><span>}</span></code>
     </div>
    </div>
