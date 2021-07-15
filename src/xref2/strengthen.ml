@@ -1,17 +1,16 @@
 (* Note for future improvement (suggested by @lpw25):
 
-You can actually do something even more interesting with that case for strengthening.
+   You can actually do something even more interesting with that case for strengthening.
 
-If you have:
-[module type S = sig type t end]
+   If you have:
+   [module type S = sig type t end]
 
-and you want to strengthen [S] with the module path [M] then you can produce:
-[S with type t = M.t]
+   and you want to strengthen [S] with the module path [M] then you can produce:
+   [S with type t = M.t]
 
-The compiler doesn't do this because it doesn't actually have a representation for `with` in its type algebra
-(`with` is always just expanded away right after parsing). But since we do have a representation for it, 
-this is probably the best thing to produce in this case.
-
+   The compiler doesn't do this because it doesn't actually have a representation for `with` in its type algebra
+   (`with` is always just expanded away right after parsing). But since we do have a representation for it,
+   this is probably the best thing to produce in this case.
 *)
 
 open Component

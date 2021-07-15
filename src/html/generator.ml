@@ -183,7 +183,7 @@ let rec block ~resolve (l : Block.t) : flow Html.elt list =
                  :> flow Html.elt list)
              in
              let def = block ~resolve i.Description.definition in
-             Html.li ~a (term @ Html.txt " " :: def)
+             Html.li ~a (term @ (Html.txt " " :: def))
            in
            Html.ul ~a (List.map item l));
         ]

@@ -402,12 +402,12 @@ let rec signature_items id map items =
     | ModuleType (id, m) :: rest ->
         inner rest
           (Odoc_model.Lang.Signature.ModuleType (module_type map parent id m)
-           :: acc)
+          :: acc)
     | ModuleTypeSubstitution (id, m) :: rest ->
         inner rest
           (Odoc_model.Lang.Signature.ModuleTypeSubstitution
              (module_type_substitution map parent id m)
-           :: acc)
+          :: acc)
     | Type (id, r, t) :: rest ->
         let t = Component.Delayed.get t in
         inner rest (Type (r, type_decl map parent id t) :: acc)
@@ -417,7 +417,7 @@ let rec signature_items id map items =
              (exception_ map
                 (id :> Odoc_model.Paths.Identifier.Signature.t)
                 id' e)
-           :: acc)
+          :: acc)
     | TypExt t :: rest -> inner rest (TypExt (typ_ext map id t) :: acc)
     | Value (id, v) :: rest ->
         let v = Component.Delayed.get v in

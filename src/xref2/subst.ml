@@ -1007,7 +1007,7 @@ and rename_bound_idents s sg =
       let s, items = rename_bound_idents s [] expansion_.items in
       rename_bound_idents s
         (Include { i with expansion_ = { expansion_ with items; removed = [] } }
-         :: sg)
+        :: sg)
         rest
   | Open { expansion } :: rest ->
       let s, items = rename_bound_idents s [] expansion.items in
@@ -1050,7 +1050,7 @@ and apply_sig_map s items removed =
                r,
                Component.Delayed.put (fun () ->
                    module_ s (Component.Delayed.get m)) )
-           :: acc)
+          :: acc)
     | ModuleSubstitution (id, m) :: rest ->
         inner rest (ModuleSubstitution (id, module_substitution s m) :: acc)
     | ModuleType (id, mt) :: rest ->
@@ -1059,7 +1059,7 @@ and apply_sig_map s items removed =
              ( id,
                Component.Delayed.put (fun () ->
                    module_type s (Component.Delayed.get mt)) )
-           :: acc)
+          :: acc)
     | ModuleTypeSubstitution (id, mt) :: rest ->
         inner rest
           (ModuleTypeSubstitution (id, module_type_substitution s mt) :: acc)
@@ -1070,7 +1070,7 @@ and apply_sig_map s items removed =
                r,
                Component.Delayed.put (fun () ->
                    type_ s (Component.Delayed.get t)) )
-           :: acc)
+          :: acc)
     | TypeSubstitution (id, t) :: rest ->
         inner rest (TypeSubstitution (id, type_ s t) :: acc)
     | Exception (id, e) :: rest ->
@@ -1082,7 +1082,7 @@ and apply_sig_map s items removed =
              ( id,
                Component.Delayed.put (fun () ->
                    value s (Component.Delayed.get v)) )
-           :: acc)
+          :: acc)
     | Class (id, r, c) :: rest -> inner rest (Class (id, r, class_ s c) :: acc)
     | ClassType (id, r, c) :: rest ->
         inner rest (ClassType (id, r, class_type s c) :: acc)

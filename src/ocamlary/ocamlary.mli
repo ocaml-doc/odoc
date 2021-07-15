@@ -262,15 +262,15 @@ val ( $ ) : unit
 val ( % ) : unit
 
 (* Disabling the following four until we figure out what to do about
-   https://github.com/ocsigen/tyxml/issues/264
+      https://github.com/ocsigen/tyxml/issues/264
 
-val ( ^ ) : unit
+   val ( ^ ) : unit
 
-val ( < ) : unit
+   val ( < ) : unit
 
-val ( > ) : unit
+   val ( > ) : unit
 
-val ( -| ) : unit *)
+   val ( -| ) : unit *)
 
 val ( & ) : unit
 
@@ -369,11 +369,11 @@ end
 
 (* TODO: figure out why this doesn't work
 
-(** This comment is for [Functor]. *)
-module Functor(EmptyAlias : EmptySigAlias) : sig
-  (** This comment is for [FunctorInner]. *)
-  module FunctorInner = EmptyAlias
-end
+   (** This comment is for [Functor]. *)
+   module Functor(EmptyAlias : EmptySigAlias) : sig
+     (** This comment is for [FunctorInner]. *)
+     module FunctorInner = EmptyAlias
+   end
 *)
 
 (** This comment is for [FunctorTypeOf]. *)
@@ -469,11 +469,11 @@ type 'a poly_poly_variant = [ `TagA of 'a ]
 type ('a, 'b) bin_poly_poly_variant = [ `TagA of 'a | `ConstrB of 'b ]
 
 (* TODO: figure out how to spec a conjunctive type
-type amb_poly_variant = [
-| unit poly_poly_variant
-| (int,unit) bin_poly_poly_variant
-| `TagC
-]
+   type amb_poly_variant = [
+   | unit poly_poly_variant
+   | (int,unit) bin_poly_poly_variant
+   | `TagC
+   ]
 *)
 
 type 'a open_poly_variant = [> `TagA ] as 'a

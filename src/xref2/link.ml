@@ -5,7 +5,7 @@ module Id = Paths.Identifier
 
 (* for < 4.03 *)
 (* let kasprintf k fmt =
-  Format.(kfprintf (fun _ -> k (flush_str_formatter ())) str_formatter fmt) *)
+   Format.(kfprintf (fun _ -> k (flush_str_formatter ())) str_formatter fmt) *)
 
 module Opt = struct
   let map f = function Some x -> Some (f x) | None -> None

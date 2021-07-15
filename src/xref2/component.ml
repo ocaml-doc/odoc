@@ -2366,7 +2366,10 @@ module Of_Lang = struct
     { items; removed = []; compiled = sg.compiled; doc = docs ident_map sg.doc }
 
   and with_location :
-        'a 'b. (map -> 'a -> 'b) -> map -> 'a Location_.with_location ->
+        'a 'b.
+        (map -> 'a -> 'b) ->
+        map ->
+        'a Location_.with_location ->
         'b Location_.with_location =
    fun conv ident_map v -> { v with value = conv ident_map v.Location_.value }
 

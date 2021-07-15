@@ -138,7 +138,7 @@ val s_field : Component.Element.field scope
 val s_label_parent : Component.Element.label_parent scope
 
 (* val open_component_signature :
-  Odoc_model.Paths_types.Identifier.signature -> Component.Signature.t -> t -> t *)
+   Odoc_model.Paths_types.Identifier.signature -> Component.Signature.t -> t -> t *)
 
 val add_functor_parameter : Odoc_model.Lang.FunctorParameter.t -> t -> t
 
